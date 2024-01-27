@@ -1,0 +1,122 @@
+/* Глобальні стилі */
+* {
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Стилі для Navbar */
+.navbar {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* світлий, напівпрозорий фон для navbar */
+  backdrop-filter: blur(10px); /* розмиття фону за елементом */
+  /* padding: 100px 20px; додати трохи простору з усіх боків */
+  border-bottom: 1px solid #ccc; /* тонка лінія для відділення navbar */
+  position: fixed;
+  top: 0;
+  /* z-index: 50; */
+  z-index: 1000;
+  height: 60px;
+  padding: 10px 20px;
+}
+
+.container {
+  max-width: 1200px; /* максимальна ширина контейнера */
+  margin: 0 auto; /* вирівняти контейнер по центру */
+  display: flex;
+  align-items: center; /* вирівнювання елементів по вертикалі */
+  justify-content: space-between; /* розділити лого та навігаційні посилання */
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* вирівнювання лого та тексту по вертикалі */
+  gap: 10px; /* відстань між лого та текстом */
+}
+
+.logo img {
+  height: 50px; /* висота лого */
+}
+
+.logo span {
+  font-size: 24px; /* розмір шрифту для назви сайту */
+  font-weight: bold; /* жирність тексту */
+  color: #333; /* колір тексту */
+}
+
+.links {
+  list-style: none; /* видалити маркери списку */
+  display: flex;
+  gap: 20px; /* відстань між посиланнями */
+  align-items: center;
+}
+
+.links a,
+.links button {
+  text-decoration: none; /* видалити підкреслення */
+  color: #333; /* колір тексту */
+  font-size: 16px; /* розмір шрифту */
+  padding: 8px 16px; /* додати простір навколо тексту */
+  border-radius: 5px; /* закруглення країв */
+  transition: background-color 0.3s, color 0.3s; /* анімація для hover ефекту */
+  background-color: rgba(255, 255, 255, 0.6); /* фон для кнопок та посилань */
+  display: flex;
+  align-items: center; /* вирівнювання іконки та тексту по вертикалі */
+  justify-content: center; /* центрування іконки та тексту */
+}
+
+.links a:hover,
+.links button:hover {
+  background-color: #007bff; /* колір фону при наведенні */
+  color: #fff; /* колір тексту при наведенні */
+}
+
+.nav-item {
+  position: relative; /* для позиціонування випадаючого меню */
+}
+
+/* Стилі для випадаючого меню (Dropdown) */
+.dropdown-menu {
+  display: none; /* приховати за замовчуванням */
+  position: absolute;
+  top: 100%; /* відобразити прямо під елементом меню */
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.95); /* фон для випадаючого меню */
+  border: 1px solid #ccc; /* рамка навколо випадаючого меню */
+  border-radius: 5px; /* закруглення країв */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* тінь для глибини */
+  z-index: 1000; /* переконатися, що меню з'являється над іншими елементами */
+  backdrop-filter: blur(10px); /* розмиття фону за випадаючим меню */
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block; /* показати випадаюче меню при наведенні */
+}
+
+.dropdown-menu li {
+  padding: 10px 20px; /* простір для кожного елемента меню */
+}
+
+.dropdown-menu li:hover {
+  background-color: #007bff; /* колір фону для елемента меню при наведенні */
+  color: #fff; /* колір тексту для елемента меню при наведенні */
+}
+
+.dropdown-menu li a {
+  color: #333; /* колір тексту для посилань */
+  text-decoration: none; /* видалити підкреслення */
+  display: block; /* зробити посилання блочними, щоб зайняти всю ширину li */
+}
+
+.dropdown-menu li a:hover {
+  color: #fff; /* колір тексту для посилань при наведенні */
+}
+
+/* Стилі для мобільного меню та інших кнопок */
+/* Ви можете додати медіа-запити для респонсивного дизайну */

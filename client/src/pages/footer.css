@@ -1,0 +1,97 @@
+.privacy-policy {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.policy-container {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.policy-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.policy-section {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-dmca {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.dmca-container {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dmca-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.dmca-notice {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dmca-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.dmca-list {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+.dmca-list li {
+  margin-bottom: 8px;
+}
+
+.footer-terms {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.terms-container {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.terms-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.terms-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.terms-list {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+.terms-list li {
+  margin-bottom: 8px;
+}

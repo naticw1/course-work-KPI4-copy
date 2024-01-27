@@ -1,0 +1,73 @@
+.add-comic-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-comic-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* відступ між колонками */
+  padding: 0 20px; /* внутрішній відступ для `form-row`, щоб забезпечити відстань від країв */
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(
+    50% - 20px
+  ); /* віднімаємо відступи, щоб колонки були рівні */
+}
+
+.form-column label {
+  margin-bottom: 10px;
+}
+
+.form-column input[type="text"],
+.form-column input[type="file"],
+.form-column textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-column textarea {
+  height: 100px; /* Висота текстового поля */
+  resize: vertical;
+}
+
+.add-comic-container form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #5cb85c;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.add-comic-container form button:hover {
+  background-color: #4cae4c;
+}
+
+.input-checkbox,
+.input-file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-column input[type="text"],
+.form-column input[type="file"],
+.form-column textarea,
+.form-column .input-checkbox {
+  flex: 1;
+}

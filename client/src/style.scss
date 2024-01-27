@@ -1,0 +1,864 @@
+$lightGreen: #b9e7e7;
+$primaryColor: #5cdb95; // Світло-зелений для основного акценту
+$secondaryColor: #05386b; // Темно-синій для контрастного акценту
+$hoverTextColor: #edf5e1; // Світло-кремовий для тексту на акцентних кнопках
+$backgroundColor: #8ee4af; // Блідо-зелений для фону при наведенні
+$textColor: #5cdb95; // Світло-зелений для тексту
+
+.app {
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 1024px;
+    .link {
+      text-decoration: none;
+      color: inherit;
+    }
+    //LOGIN & REGISTER
+
+    .auth {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: $lightGreen;
+
+      h1 {
+        font-size: 20px;
+        color: teal;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        background-color: white;
+        width: 200px;
+        gap: 20px;
+
+        input {
+          padding: 10px;
+          border: none;
+          border-bottom: 1px solid gray;
+        }
+
+        button {
+          padding: 10px;
+          border: none;
+          background-color: teal;
+          cursor: pointer;
+          color: white;
+        }
+
+        p {
+          font-size: 12px;
+          color: red;
+          text-align: center;
+        }
+        span {
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
+
+    .navbar {
+      .container {
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img {
+            // width: 75px;
+            height: 50px;
+          }
+          span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+          }
+        }
+        .links {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          h6 {
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          span {
+            cursor: pointer;
+            img {
+              width: 50px;
+              border-radius: 10px;
+            }
+          }
+          // .nav-item {
+          //   position: relative;
+
+          //   .dropdown-menu {
+          //     display: none;
+          //     position: absolute;
+          //     top: 100%;
+          //     left: 0;
+          //     background-color: rgba(255, 255, 255, 0.95);
+          //     // border: 1px solid #ccc;
+          //     // border-radius: 5px;
+          //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          //     z-index: 1000;
+          //     backdrop-filter: blur(10px);
+
+          //     li {
+          //       padding: 10px 20px;
+
+          //       &:hover {
+          //         background-color: #007bff;
+          //         color: #fff;
+          //       }
+
+          //       a {
+          //         color: #333;
+          //         text-decoration: none;
+          //         display: block;
+
+          //         &:hover {
+          //           color: #fff;
+          //         }
+          //       }
+          //     }
+          //   }
+          //   &:hover {
+          //     .dropdown-menu {
+          //       display: block;
+          //     }
+          //   }
+          // }
+
+          .add-comics {
+            background-color: $primaryColor; // Змінено на змінну основного кольору (наприклад, яскраво-зелений або інший колір)
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; // Зробіть кнопку круглою
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold; // Зробіть текст жирнішим
+            color: #fff; // Змініть колір тексту на білий
+            font-size: 24px; // Збільшіть розмір шрифту
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Додайте тінь для більшої глибини
+            transition: all 0.3s; // Додайте перехід для анімації
+
+            &:hover {
+              background-color: $secondaryColor; // Змініть колір фону при наведенні
+              color: $hoverTextColor; // Змініть колір тексту при наведенні
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); // Збільшіть тінь при наведенні
+              transform: scale(1.05); // Злегка збільшіть кнопку при наведенні
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      background-color: #f3f4f6; // Light grey background
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); // subtle shadow to top
+      margin-top: 30px;
+
+      .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .footer-link {
+          color: #333; // Dark grey text
+          margin: 0 15px; // Spacing between links
+          text-decoration: none;
+          font-size: 16px;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #1a202c; // Slightly darker on hover
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .home {
+      padding: 2rem;
+      background-color: #f4f4f4;
+
+      .posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+
+        .post {
+          width: calc(
+            50% - 0.5rem
+          ); // Змінено, щоб забезпечити два пости в рядку
+          margin-bottom: 1rem;
+          display: flex; // Використання flex для розташування зображення та контенту в рядок
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+          .img {
+            width: 160px; // Ширина зображення
+            height: 240px;
+            overflow: hidden;
+            margin-right: 1rem; // Відступ між зображенням та контентом
+
+            .comic-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              color: transparent;
+            }
+          }
+
+          .content {
+            flex-grow: 1;
+            padding: 1rem;
+
+            h1 {
+              font-size: 1.2rem;
+              margin-bottom: 0.5rem;
+            }
+
+            p {
+              font-size: 0.9rem;
+              color: #666;
+              margin-bottom: 0.25rem;
+            }
+
+            .link {
+              text-decoration: none;
+              color: #007bff;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Медіа-запити для адаптивного дизайну
+    @media (max-width: 1200px) {
+      .home .posts .post {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .home .posts .post {
+        width: 100%;
+      }
+    }
+
+    // Single page:
+    // .single {
+    //   display: flex;
+    //   gap: 50px;
+
+    //   .content-left {
+    //     flex: 2;
+    //   }
+    //   .content-right {
+    //     flex: 7;
+    //   }
+    // }
+    .single {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: auto;
+      margin-left: 20px;
+      padding: 20px;
+      max-width: 1200px; // Adjust as per your design requirement
+
+      .title {
+        h1 {
+          font-size: 2.5rem; // Large title
+          margin-bottom: 50px;
+          color: #333; // Dark color for text
+          text-align: left;
+        }
+      }
+
+      .content-container {
+        display: flex;
+        width: 100%;
+        gap: 50px;
+      }
+
+      .content-left {
+        // Adjust the width as needed
+        flex: 3;
+
+        .image {
+          img {
+            width: 180px; // Fixed width
+            height: 270px; // Fixed height
+            object-fit: cover; // This will cover the area without stretching the image
+            border-radius: 5px;
+            margin-bottom: 10px;
+          }
+        }
+
+        .bookmark {
+          button {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #f0f0f0; // Light grey for hover
+            }
+          }
+        }
+
+        p {
+          color: #666; // Lighter color for text
+        }
+      }
+
+      .content-right {
+        // Adjust the width as needed
+        flex: 7;
+
+        .socials {
+          a {
+            display: inline-block;
+
+            margin-right: 10px;
+            color: #007bff; // Bootstrap primary color for links
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .alies,
+        .Synopsis,
+        .genres {
+          h2 {
+            margin-bottom: 10px;
+            color: #333; // Dark color for text
+          }
+          p {
+            color: #666; // Lighter color for text
+          }
+        }
+
+        .genre {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          p {
+            background-color: #f8f9fa; // Light background for genre tags
+            padding: 5px 10px;
+            border-radius: 15px;
+          }
+        }
+      }
+    }
+
+    .all-comics {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-items: flex-start;
+
+      .manga-lists {
+        margin: 20px 0;
+
+        h3 {
+          font-size: 24px;
+          color: #333;
+        }
+      }
+
+      .search-titles {
+        width: 100%; // Make search input full width
+        margin-bottom: 20px;
+
+        input {
+          width: 100%; // Make search input full width
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      }
+
+      .filters {
+        display: flex; // Use flexbox to align filter buttons
+        justify-content: space-between; // Distribute space between the buttons
+        width: 100%; // Full width
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+        .filter-group {
+          display: grid; // Changed to grid layout
+          grid-template-columns: repeat(4, 1fr); // Create four columns
+          gap: 10px; // Gap between the buttons
+          width: 100%;
+
+          .dropdown-button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4a90e2;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box; // Include padding and border in the width
+
+            &:hover {
+              background-color: #357abd;
+            }
+          }
+        }
+      }
+
+      .result {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 20px;
+        width: 100%;
+
+        .post {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #fff;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          overflow: hidden;
+
+          .img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .content {
+            padding: 15px;
+            text-align: center;
+
+            .link {
+              text-decoration: none;
+              color: #333;
+
+              h1 {
+                font-size: 18px;
+                margin-bottom: 10px;
+              }
+            }
+
+            p {
+              font-size: 14px;
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+
+    .genre-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-items: flex-start;
+
+      .genre-comic {
+        margin: 20px 0;
+
+        h3 {
+          font-size: 24px;
+          color: #333;
+        }
+      }
+
+      .search-titles {
+        width: 100%;
+        margin-bottom: 20px;
+
+        input {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      }
+
+      .filters {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+
+        .filter-group {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          width: 100%;
+
+          .dropdown-button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4a90e2;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box;
+
+            &:hover {
+              background-color: #357abd;
+            }
+          }
+        }
+      }
+
+      .result {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 20px;
+        width: 100%;
+
+        .post {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: #fff;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          overflow: hidden;
+
+          .img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .content {
+            padding: 15px;
+            text-align: center;
+
+            .link {
+              text-decoration: none;
+              color: #333;
+
+              h1 {
+                font-size: 18px;
+                margin-bottom: 10px;
+              }
+            }
+
+            p {
+              font-size: 14px;
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+    .user-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-items: flex-start;
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+      }
+
+      .user {
+        .inside-user {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 11rem;
+            // width: 50px;
+            height: 11rem;
+            // height: 50px;
+            margin-right: 10px;
+          }
+
+          .user-content {
+            h1 {
+              font-size: 24px;
+              color: #333;
+            }
+
+            .logout-button {
+              padding: 10px 15px;
+              font-size: 14px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              background-color: #4a90e2;
+              color: #fff;
+              text-align: center;
+              box-sizing: border-box;
+              margin-top: 10px;
+
+              &:hover {
+                background-color: #357abd;
+              }
+            }
+          }
+        }
+      }
+
+      .Bookmarks {
+        .manga-lists {
+          margin: 20px 0;
+
+          h3 {
+            font-size: 24px;
+            color: #333;
+          }
+        }
+
+        .search-titles {
+          width: 100%;
+          margin-bottom: 20px;
+
+          input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+        }
+
+        .filters {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-bottom: 20px;
+
+          .dropdown-button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4a90e2;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box;
+            margin-right: 10px;
+
+            &:hover {
+              background-color: #357abd;
+            }
+          }
+        }
+
+        .result {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          gap: 20px;
+          width: 100%;
+
+          .post {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+
+            .img {
+              width: 100%;
+              height: 200px;
+              overflow: hidden;
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+
+            .content {
+              padding: 15px;
+              text-align: center;
+
+              .link {
+                text-decoration: none;
+                color: #333;
+
+                h1 {
+                  font-size: 18px;
+                  margin-bottom: 10px;
+                }
+              }
+
+              p {
+                font-size: 14px;
+                color: #666;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // All comics
+
+    // .all-comics {
+    //   border: 2px solid #d4d4d4;
+    //   border-radius: 8px;
+    //   background-color: #f7f7f7;
+    //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    //   margin: 20px;
+    //   padding: 20px;
+
+    //   .manga-lists h3 {
+    //     font-size: 1.5rem;
+    //     font-weight: bold;
+    //     color: #333;
+    //   }
+
+    //   .search-titles input {
+    //     height: 30px;
+    //     border: 1px solid #ccc;
+    //     border-radius: 4px;
+    //     padding: 5px;
+    //     margin-top: 10px;
+    //     margin-bottom: 10px;
+    //     width: 100%;
+
+    //     box-sizing: border-box;
+    //   }
+    //   .filter-group {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     gap: 10px; /* Відстань між фільтрами */
+    //     justify-content: flex-start; /* або center, залежно від того, як ви хочете їх вирівняти */
+    //     padding: 10px; /* Відстань від границь контейнера */
+    //   }
+
+    //   .filter-group .dropdown-button {
+    //     flex: 0 0 auto; /* Забезпечує, що flex не змінює розміри */
+    //     width: 150px; /* Фіксована ширина */
+    //     height: 40px; /* Фіксована висота */
+    //     margin-bottom: 10px; /* Додаткова відстань між рядками, якщо потрібно */
+    //   }
+
+    //   // .dropdown {
+    //   //   position: absolute;
+    //   //   background-color: #f9f9f9;
+    //   //   min-width: 160px;
+    //   //   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    //   //   z-index: 1; /* Ensure dropdown appears above other content */
+    //   // }
+
+    //   // .dropdown-item {
+    //   //   color: black;
+    //   //   padding: 12px 16px;
+    //   //   text-decoration: none;
+    //   //   display: block;
+    //   // }
+
+    //   // .dropdown-item:hover {
+    //   //   background-color: #f1f1f1;
+    //   // }
+
+    //   // .result {
+    //   //   display: flex;
+    //   //   flex-wrap: wrap;
+    //   //   gap: 20px;
+    //   //   margin-top: 20px;
+    //   // }
+    //   .result {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     justify-content: space-between;
+    //   }
+
+    //   .post {
+    //     width: calc(
+    //       16.6667% - 20px
+    //     ); /* 16.6667% to get 6 items per row, minus margin */
+    //     margin-bottom: 20px;
+    //     border: 1px solid #00008b; /* Add some spacing between each post */
+    //   }
+
+    //   .img {
+    //     width: 100%;
+    //     height: auto;
+    //     border-bottom: 2px solid #ddd;
+    //   }
+    //   .comic-image {
+    //     width: 100%;
+    //     height: auto;
+    //     max-width: 100%; /* Adjusted to ensure the image doesn't overflow its container */
+    //     max-height: 256px;
+    //   }
+
+    //   .content {
+    //     padding-left: 6px;
+    //     padding-right: 6px;
+    //     margin: 1px;
+    //   }
+
+    //   .link h3 {
+    //     font-size: 1.2rem;
+    //     color: #333;
+    //     text-decoration: none;
+    //   }
+
+    //   .link h3:hover {
+    //     color: #007bff;
+    //   }
+
+    //   .link p {
+    //     color: #666;
+    //   }
+    // }
+  }
+}

@@ -1,0 +1,91 @@
+/* .dropdown-menu {
+  width: 200px;
+  position: absolute;
+  top: 80px;
+  list-style: none;
+  text-align: start;
+  max-height: 400px; 
+  overflow-y: auto; 
+  overflow-x: hidden;
+  z-index: 1000;
+  background-color: aqua;
+}
+
+.dropdown-menu li {
+  background: #1888ff;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: #5cabff;
+}
+
+.dropdown-menu.clicked {
+  display: none;
+}
+
+.dropdown-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  padding: 16px;
+}
+
+@media screen and (max-width: 960px) {
+  .fa-caret-down {
+    display: none;
+  }
+} */
+
+.dropdown-menu {
+  width: 200px;
+  position: absolute;
+  top: 80px;
+  list-style: none;
+  text-align: start;
+  max-height: 400px; /* Задайте максимальну висоту */
+  overflow-y: auto; /* Тільки вертикальна прокрутка */
+  overflow-x: hidden;
+  z-index: 1000;
+  background-color: #ffffff; /* Світлий фон */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додати тінь для глибини */
+  border-radius: 8px; /* Закруглені кути */
+  border: 1px solid #ddd; /* Тонка рамка для відділення */
+  padding: 0; /* Видалити стандартний padding */
+}
+
+.dropdown-menu li {
+  background: #f9f9f9; /* Світлий фон для кожного елементу */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Плавна зміна фону при наведенні */
+
+  &:hover {
+    background: #e9e9e9; /* Темніший фон при наведенні */
+  }
+}
+
+.dropdown-menu.clicked {
+  display: none;
+}
+
+.dropdown-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #333; /* Темний колір тексту */
+  padding: 16px;
+  transition: color 0.3s; /* Плавна зміна кольору тексту */
+
+  &:hover {
+    color: #007bff; /* Колір тексту при наведенні */
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .fa-caret-down {
+    display: none;
+  }
+}

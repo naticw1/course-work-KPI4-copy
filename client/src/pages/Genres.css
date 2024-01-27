@@ -1,0 +1,27 @@
+/* Genres.css */
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+/*
+.filters button,
+.filters .dropdown {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filters button:hover,
+.filters .dropdown:hover {
+  background-color: #ddd;
+} */

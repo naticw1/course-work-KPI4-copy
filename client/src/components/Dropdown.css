@@ -1,0 +1,112 @@
+/* Dropdown.css */
+
+.dd-wrapper {
+  position: relative;
+}
+
+.dd-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dd-header__title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.dd-header__title--bold {
+  font-weight: bold;
+}
+
+.dd-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  max-height: 300px; /* Adjust as needed */
+  overflow-y: auto;
+  margin-top: 2px; /* Gives a small space between the header and the list */
+}
+
+.dd-list-item {
+  list-style-type: none;
+}
+
+.dd-list-item button {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.icon {
+  margin-right: 10px; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-list-item button:hover,
+.dd-list-item button:focus {
+  background-color: #f8f8f8;
+}
+
+/* Optionally, style the "Selected" text */
+.selected {
+  color: green; /* or any color you prefer */
+  font-weight: bold;
+}
+.dropdown-button {
+  /* Custom properties (CSS variables) */
+  --background: 222.2 84% 4.9%;
+  --input: 217.2 32.6% 17.5%;
+  --radius: 0.5rem;
+  /* ... (add all other variables here) */
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --btn-text-case: uppercase;
+  --animation-btn: 0.25s;
+  /* ... */
+
+  /* Applying custom properties to styles */
+  background-color: hsl(var(--background));
+  border-color: hsl(var(--input));
+  border-radius: var(--radius);
+  color: hsl(var(--primary));
+  text-transform: var(--btn-text-case);
+  transition: background-color var(--animation-btn) ease-in-out,
+    color var(--animation-btn) ease-in-out;
+
+  /* Other styles */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-width: 1px;
+  cursor: pointer;
+  user-select: none;
+
+  /* ... (add other styles here) */
+}
