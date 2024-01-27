@@ -156,7 +156,6 @@ export const addPost = (req, res) => {
       .then((values) => {
         const [statusId, typeId] = values;
 
-        // Step 2: Insert into Comics Table with correct Status ID and Type ID
         const q = `
           INSERT INTO comics (title, synopsis, status_id, type_id, update_date, img, aliases)
           VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -192,7 +191,6 @@ export const addPost = (req, res) => {
             });
           }
 
-          // Step 4: Insert into ComicSources Table
           if (req.body.source_urls) {
             const sources = req.body.source_urls.split(", "); // Assuming sources are provided as a comma-separated string
             sources.forEach((source) => {
@@ -215,37 +213,6 @@ export const addPost = (req, res) => {
       });
   });
 };
-
-// export const deletePost = (req, res) => {
-//   const token = req.cookies.access_token;
-//   if (!token) return res.status(401).json("Not authenticated!");
-
-//   jwt.verify(token, "jwtkey", (err, userInfo) => {
-//     if (err) return res.status(403).json("Token is not valid!");
-
-//     console.log(req.params.id);
-
-//     const comicId = req.params.id;
-
-//     console.log(comicId);
-//     const q = "DELETE FROM comics WHERE `comic_id` = ?";
-
-//     // db.query(q, [comicId, userInfo.id], (err, data) => {
-//     //   if (err) return res.status(403).json("You can delete only your post!");
-
-//     //   return res.json("Post has been deleted!");
-//     // });
-//     db.query(q, [comicId], (err, data) => {
-//       console.log(data);
-
-//       if (err) return res.status(500).json(err);
-//       // if (data.affectedRows === 0) {
-//       //   return res.status(404).json("Post not found!");
-//       // }
-//       return res.json("Post has been deleted!");
-//     });
-//   });
-// };
 
 export const deletePost = (req, res) => {
   const token = req.cookies.access_token;
@@ -342,10 +309,8 @@ export const updatePost = (req, res) => {
   jwt.verify(token, "jwtkey", (err, userInfo) => {
     if (err) return res.status(403).json("Token is not valid!");
 
-    // Assuming you are passing the comic_id as a URL parameter
     const comicId = req.params.id;
 
-    // Input validation (make sure to adapt it to your needs)
     if (!req.body.title || !req.body.synopsis) {
       return res.status(400).json("Required fields are missing!");
     }

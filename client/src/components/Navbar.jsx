@@ -26,7 +26,7 @@ const Navbar = () => {
       setDropdown(false);
     } else {
       if (timerId) {
-        clearTimeout(timerId); // Очистіть таймер, якщо користувач повертає курсор на елемент меню
+        clearTimeout(timerId);
         setTimerId(null);
       }
       setDropdown(true);
@@ -39,7 +39,7 @@ const Navbar = () => {
     } else {
       const id = setTimeout(() => {
         setDropdown(false);
-      }, 500); // Задайте затримку в 500 мілісекунд
+      }, 500);
       setTimerId(id);
     }
   };
@@ -57,7 +57,6 @@ const Navbar = () => {
           <Link className="link" to="/title">
             <h6>All comics</h6>
           </Link>
-          {/* <div className="nav-item-container" onMouseLeave={onMouseLeave}> */}
 
           <li
             className="nav-item"
@@ -67,7 +66,7 @@ const Navbar = () => {
             <span>
               Genres <i className="fas fa-caret-down"></i>
             </span>
-            {/* Включіть DropdownNav як дочірній елемент */}
+
             {dropdown && <DropdownNav />}
           </li>
 

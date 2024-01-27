@@ -16,8 +16,8 @@ const AddComic = () => {
 
   const [file, setFile] = useState(null);
   const [aliases, setAliases] = useState(state?.aliases || "");
-  const [genres, setGenres] = useState(state?.genres || ""); // Assuming genres is a string; adjust if it's an array
-  const [source_urls, setSources] = useState(state?.source_urls || ""); // Assuming sources is a string; adjust if it's an array
+  const [genres, setGenres] = useState(state?.genres || ""); // Assuming genres is a string;
+  const [source_urls, setSources] = useState(state?.source_urls || ""); // Assuming sources is a string;
 
   // Validation functions
   const [titleValid, setTitleValid] = useState(true);
@@ -31,7 +31,7 @@ const AddComic = () => {
   const validateTitle = (title) => title.length >= 1 && title.length <= 50;
   const validateSourceUrls = (sourceUrls) =>
     sourceUrls.length >= 10 && sourceUrls.length <= 1000;
-  const validatePhoto = (file) => !!file; // Ensure that a file is selected, additional file validation may be required
+  const validatePhoto = (file) => !!file;
   const validateAliases = (aliases) =>
     aliases.length >= 1 && aliases.length <= 200;
   const validateGenres = (genres) => genres.length >= 4 && genres.length <= 200;
@@ -66,7 +66,7 @@ const AddComic = () => {
       return;
     }
 
-    const imgUrl = await upload(); // Ensure this function handles the image upload and returns the URL
+    const imgUrl = await upload();
 
     console.log(imgUrl);
 
@@ -82,31 +82,29 @@ const AddComic = () => {
         ? await axios.put(`/title/${state.comic_id}`, {
             title: title,
             synopsis: synopsis,
-            status: status, // You need a mechanism in your form to select or input the status_id
-            type: type, // You need a mechanism in your form to select or input the type_id
-            // update_date: , // Format the date as per your schema
-            img: file ? imgUrl : "", // URL from the upload function
-            genres: genres, // Directly using the genres from the state
-            source_urls: source_urls, // Directly using the sources from the state
-            aliases: aliases, // Directly using the aliases from the state
+            status: status,
+            type: type,
+            // update_date: ,
+            img: file ? imgUrl : "",
+            genres: genres,
+            source_urls: source_urls,
+            aliases: aliases,
           })
         : await axios.post(`/title/`, {
             title: title,
             synopsis: synopsis,
-            status: status, // You need a mechanism in your form to select or input the status_id
-            type: type, // You need a mechanism in your form to select or input the type_id
-            // update_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Format the date as per your schema
+            status: status,
+            type: type,
+            // update_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             update_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-            img: file ? imgUrl : "", // URL from the upload function
-            genres: genres, // Directly using the genres from the state
-            source_urls: source_urls, // Directly using the sources from the state
-            aliases: aliases, // Directly using the aliases from the state
+            img: file ? imgUrl : "",
+            genres: genres,
+            source_urls: source_urls,
+            aliases: aliases,
           });
       navigate("/");
 
       console.log(moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"));
-
-      // Navigate to home or dashboard after the operation
     } catch (err) {
       console.log(err);
     }
