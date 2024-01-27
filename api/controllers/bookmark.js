@@ -12,8 +12,7 @@ export const getBookmarks = (req, res) => {
 
 export const addBookmark = (req, res) => {
   const token = req.cookies.accessToken;
-  // Розкоментуйте наступні рядки, якщо потрібна автентифікація
-  // if (!token) return res.status(401).json("Not logged in!");
+
   jwt.verify(token, "jwtkey", (err, userInfo) => {
     // if (err) return res.status(403).json("Token is not valid!");
     const userId = req.params.user_id;

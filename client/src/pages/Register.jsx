@@ -10,15 +10,47 @@ const Register = () => {
     password: "",
   });
 
+  const [usernameValid, setUsernameValid] = useState(true);
+  const [emailValid, setEmailValid] = useState(true);
+  const [passwordValid, setPasswordValid] = useState(true);
+
   const [err, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+    if (name === "email") {
+      setEmailValid(validateEmail(value));
+    } else if (name === "username") {
+      setUsernameValid(validateUsername(value));
+    } else if (name === "password") {
+      setPasswordValid(validatePassword(value));
+    }
   };
   console.log(inputs);
 
+  const validateEmail = (email) => {
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+
+  const validateUsername = (username) => {
+    return username.length >= 5 && username.length <= 25;
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 5 && password.length <= 25;
+  };
+
   const handleSubmit = async (e) => {
+    const formValid = usernameValid && emailValid && passwordValid;
+    if (!formValid) {
+      console.log("Form is invalid!");
+      return;
+    }
     e.preventDefault();
     try {
       await axios.post("/auth/register", inputs);
@@ -47,26 +79,44 @@ const Register = () => {
           type="text"
           placeholder="username"
           name="username"
+          value={inputs.username}
           onChange={handleChange}
+          className={!usernameValid ? "input-error" : ""}
         />
+        {!usernameValid && (
+          <p className="error-message">
+            Username must be 5-25 characters long.
+          </p>
+        )}
+
         <input
           required
           type="email"
           placeholder="email"
           name="email"
+          value={inputs.email}
           onChange={handleChange}
+          className={!emailValid ? "input-error" : ""}
         />
+        {!emailValid && (
+          <p className="error-message">Please enter a valid email address.</p>
+        )}
+
         <input
           required
           type="password"
           placeholder="password"
           name="password"
+          value={inputs.password}
           onChange={handleChange}
+          className={!passwordValid ? "input-error" : ""}
         />
-        {/* <button type="button" onClick={handleSubmit}>
-          Register
-        </button> */}
-        {/* <button type="submit">Register</button> */}
+        {!passwordValid && (
+          <p className="error-message">
+            Password must be 5-25 characters long.
+          </p>
+        )}
+
         <button type="submit" onClick={handleSubmit}>
           Register
         </button>

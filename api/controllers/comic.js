@@ -1,5 +1,6 @@
 import { db } from "../db.js";
 import jwt from "jsonwebtoken";
+import moment from "moment";
 
 export const getPosts = (req, res) => {
   let genres = [];
@@ -369,7 +370,7 @@ export const updatePost = (req, res) => {
       req.body.synopsis,
       req.body.status,
       req.body.type,
-      req.body.update_date,
+      moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
       req.body.img,
       req.body.aliases,
     ];

@@ -71,3 +71,12 @@
 .form-column .input-checkbox {
   flex: 1;
 }
+
+.error-message {
+  color: red; /* Red color for error messages to grab attention */
+  font-size: 0.85em; /* Slightly smaller font size for the error text */
+  margin-top: 5px; /* Space above the error message */
+  margin-bottom: 5px; /* Space below the error message */
+  line-height: 1.2; /* Adjust line height for better readability */
+  font-weight: bold; /* Make the error message bold */
+}

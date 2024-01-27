@@ -30,36 +30,6 @@ const Genres = () => {
     return formatted;
   };
 
-  // Ефект для форматування і завантаження коміксів за жанром
-
-  // Ефект для виклику fetchData при зміні параметрів
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const queryParams = new URLSearchParams();
-  //     queryParams.append("genres", formattedGenre);
-
-  //     // queryParams.append("genres", formattedGenre);
-  //     // console.log("Genres", typeof formattedGenre);
-
-  //     if (searchQuery) queryParams.append("search", searchQuery);
-  //     if (selectedStatus) queryParams.append("status", selectedStatus);
-  //     if (selectedType) queryParams.append("type", selectedType);
-  //     if (selectedSortOrder) queryParams.append("order", selectedSortOrder);
-
-  //     console.log("Query Params:", queryParams.toString());
-  //     console.log("Formatted Genre:", formattedGenre);
-
-  //     const res = await axios.get(`/title?${queryParams}`);
-  //     setComics(res.data);
-  //     try {
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [genre, searchQuery, selectedStatus, selectedType, selectedSortOrder]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -86,7 +56,13 @@ const Genres = () => {
     };
 
     fetchData();
-  }, [genre, searchQuery, selectedStatus, selectedType, selectedSortOrder]);
+  }, [
+    formattedGenre,
+    searchQuery,
+    selectedStatus,
+    selectedType,
+    selectedSortOrder,
+  ]);
 
   useEffect(() => {
     const newFormattedGenre = formatGenreName(genre);

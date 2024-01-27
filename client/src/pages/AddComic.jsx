@@ -19,6 +19,24 @@ const AddComic = () => {
   const [genres, setGenres] = useState(state?.genres || ""); // Assuming genres is a string; adjust if it's an array
   const [source_urls, setSources] = useState(state?.source_urls || ""); // Assuming sources is a string; adjust if it's an array
 
+  // Validation functions
+  const [titleValid, setTitleValid] = useState(true);
+  const [sourceUrlsValid, setSourceUrlsValid] = useState(true);
+  const [photoValid, setPhotoValid] = useState(true);
+  const [aliasesValid, setAliasesValid] = useState(true);
+  const [genresValid, setGenresValid] = useState(true);
+  const [synopsisValid, setSynopsisValid] = useState(true);
+
+  // Validation functions
+  const validateTitle = (title) => title.length >= 1 && title.length <= 50;
+  const validateSourceUrls = (sourceUrls) =>
+    sourceUrls.length >= 10 && sourceUrls.length <= 1000;
+  const validatePhoto = (file) => !!file; // Ensure that a file is selected, additional file validation may be required
+  const validateAliases = (aliases) =>
+    aliases.length >= 1 && aliases.length <= 200;
+  const validateGenres = (genres) => genres.length >= 4 && genres.length <= 200;
+  const validateSynopsis = (synopsis) => synopsis.length <= 1000;
+
   const navigate = useNavigate();
 
   const upload = async () => {
@@ -35,6 +53,19 @@ const AddComic = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
+    const formValid =
+      titleValid &&
+      sourceUrlsValid &&
+      photoValid &&
+      aliasesValid &&
+      genresValid &&
+      synopsisValid;
+    if (!formValid) {
+      console.log("Form is invalid!");
+      return;
+    }
+
     const imgUrl = await upload(); // Ensure this function handles the image upload and returns the URL
 
     console.log(imgUrl);
@@ -64,7 +95,8 @@ const AddComic = () => {
             synopsis: synopsis,
             status: status, // You need a mechanism in your form to select or input the status_id
             type: type, // You need a mechanism in your form to select or input the type_id
-            update_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Format the date as per your schema
+            // update_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"), // Format the date as per your schema
+            update_date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             img: file ? imgUrl : "", // URL from the upload function
             genres: genres, // Directly using the genres from the state
             source_urls: source_urls, // Directly using the sources from the state
@@ -72,10 +104,48 @@ const AddComic = () => {
           });
       navigate("/");
 
+      console.log(moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"));
+
       // Navigate to home or dashboard after the operation
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleTitleChange = (e) => {
+    const newTitle = e.target.value;
+    setTitle(newTitle);
+    setTitleValid(validateTitle(newTitle));
+  };
+
+  const handleSourceUrlsChange = (e) => {
+    const newSourceUrls = e.target.value;
+    setSources(newSourceUrls);
+    setSourceUrlsValid(validateSourceUrls(newSourceUrls));
+  };
+
+  const handleFileChange = (e) => {
+    const newFile = e.target.files[0];
+    setFile(newFile);
+    setPhotoValid(validatePhoto(newFile));
+  };
+
+  const handleAliasesChange = (e) => {
+    const newAliases = e.target.value;
+    setAliases(newAliases);
+    setAliasesValid(validateAliases(newAliases));
+  };
+
+  const handleGenresChange = (e) => {
+    const newGenres = e.target.value;
+    setGenres(newGenres);
+    setGenresValid(validateGenres(newGenres));
+  };
+
+  const handleSynopsisChange = (e) => {
+    const newSynopsis = e.target.value;
+    setSynopsis(newSynopsis);
+    setSynopsisValid(validateSynopsis(newSynopsis));
   };
 
   return (
@@ -89,8 +159,14 @@ const AddComic = () => {
                 type="text"
                 value={title}
                 name="title"
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={handleTitleChange}
+                className={!titleValid ? "input-error" : ""}
               />
+              {!titleValid && (
+                <p className="error-message">
+                  Title must be 1-50 characters long.
+                </p>
+              )}
             </label>
 
             <label className="input-file">
@@ -99,8 +175,12 @@ const AddComic = () => {
                 type="file"
                 id="file"
                 name="file"
-                onChange={(e) => setFile(e.target.files[0])}
+                onChange={handleFileChange}
+                className={!photoValid ? "input-error" : ""}
               />
+              {!photoValid && (
+                <p className="error-message">Please upload a photo.</p>
+              )}
             </label>
 
             <label>
@@ -128,8 +208,14 @@ const AddComic = () => {
                 type="text"
                 name="genres"
                 value={genres}
-                onChange={(e) => setGenres(e.target.value)}
+                onChange={handleGenresChange}
+                className={!genresValid ? "input-error" : ""}
               />
+              {!genresValid && (
+                <p className="error-message">
+                  Genres must be 4-200 characters long.
+                </p>
+              )}
             </label>
           </div>
           <div className="form-column">
@@ -139,8 +225,14 @@ const AddComic = () => {
                 type="text"
                 name="sources"
                 value={source_urls}
-                onChange={(e) => setSources(e.target.value)}
+                onChange={handleSourceUrlsChange}
+                className={!sourceUrlsValid ? "input-error" : ""}
               />
+              {!sourceUrlsValid && (
+                <p className="error-message">
+                  Sources must be 10-1000 characters long.
+                </p>
+              )}
             </label>
             <label>
               Aliases
@@ -148,16 +240,28 @@ const AddComic = () => {
                 type="text"
                 name="aliases"
                 value={aliases}
-                onChange={(e) => setAliases(e.target.value)}
+                onChange={handleAliasesChange}
+                className={!aliasesValid ? "input-error" : ""}
               />
+              {!aliasesValid && (
+                <p className="error-message">
+                  Aliases must be 1-200 characters long.
+                </p>
+              )}
             </label>
             <label>
               Synopsis
               <textarea
                 name="synopsis"
                 value={synopsis}
-                onChange={(e) => setSynopsis(e.target.value)}
+                onChange={handleSynopsisChange}
+                className={!synopsisValid ? "input-error" : ""}
               />
+              {!synopsisValid && (
+                <p className="error-message">
+                  Synopsis can't be more than 1000 characters long.
+                </p>
+              )}
             </label>
           </div>
         </div>
